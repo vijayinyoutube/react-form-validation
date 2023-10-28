@@ -24,8 +24,7 @@ const Paymt_Req_Form = () => {
       align="center"
     >
       <div
-        className={`xl:w-1/4 lg:w-1/3 md:w-1/2 sm:w-1/2 m-kMargin p-kMargin
-          h-auto drop-shadow-lg bg-white rounded-md `}
+        className={`xl:w-1/4 lg:w-1/3 md:w-1/2 sm:w-1/2 m-kMargin p-kMargin h-auto drop-shadow-lg bg-white rounded-md `}
       >
         <Space direction="vertical" className="w-full">
           <Form
