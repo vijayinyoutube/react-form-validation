@@ -3,7 +3,7 @@ import "../CSS/custom.css";
 
 function ActionBtns() {
   return (
-    <div className="flex justify-between mt-5">
+    <div className="flex justify-between">
       <div>
         <Button>Cancel</Button>
       </div>
@@ -20,7 +20,7 @@ function ActionBtns() {
             },
           }}
         >
-          <Button className="ReqPaymentBtn">
+          <Button className="ReqPaymentBtn" type="primary">
             <div className="">Request Payment</div>
           </Button>
         </ConfigProvider>

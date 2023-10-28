@@ -1,9 +1,10 @@
-import { Divider, Flex, Form } from "antd";
+import { Flex, Form } from "antd";
 import { Space, Typography } from "antd";
 import { useState } from "react";
 import ContactDetails from "../Comp/Contact_Details";
 import ReqDetails from "../Comp/Req_Details";
 import ActionBtns from "../Comp/Action_Btn";
+import { HeightSpacer } from "../../../Declarations/Constants/constants";
 
 const { Text } = Typography;
 
@@ -17,24 +18,34 @@ const Paymt_Req_Form = () => {
   const filteredOptions = OPTIONS.filter((o) => !selectedItems.includes(o));
 
   return (
-    <Flex className="h-screen bg-sky-800 m-0" justify="center" align="center">
-      <div className="xl:w-1/4 lg:w-1/3 md:w-1/2 sm:w-1/2  mx-5 h-auto drop-shadow-lg bg-white rounded-md p-5">
+    <Flex
+      className="h-screen bg-slate-100 m-0 "
+      justify="center"
+      align="center"
+    >
+      <div
+        className={`xl:w-1/4 lg:w-1/3 md:w-1/2 sm:w-1/2 m-kMargin p-kMargin
+          h-auto drop-shadow-lg bg-white rounded-md `}
+      >
         <Space direction="vertical" className="w-full">
           <Form
             name="basic"
             initialValues={{ remember: true }}
             autoComplete="off"
             layout="vertical"
+            className=""
           >
-            <Text className="font-medium text-2xl ">Payment Request</Text>
-            <Divider className="Divider" />
+            <div>
+              <Text className={`font-medium text-2xl`}>Payment Request</Text>
+            </div>
+            {HeightSpacer({ heightClass: "m-kMargin" })}
             {/* * * *  Contact Details Input Fields * * * * */}
             <ContactDetails
               selectedItems={selectedItems}
               setSelectedItems={setSelectedItems}
               filteredOptions={filteredOptions}
             />
-
+            {HeightSpacer({ heightClass: "m-kMargin" })}
             {/* * * *  Request Details Input Fields * * * * */}
             <ReqDetails
               selectedCompany={selectedCompany}
@@ -44,7 +55,7 @@ const Paymt_Req_Form = () => {
               COMPANY_NAMES={COMPANY_NAMES}
               DEST_COMPANY_NAMES={DEST_COMPANY_NAMES}
             />
-
+            {HeightSpacer({ heightClass: "m-kMargin" })}
             {/* * * *  Call To Action : Btm Buttons * * * * */}
             <ActionBtns />
           </Form>
