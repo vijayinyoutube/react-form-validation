@@ -9,7 +9,7 @@ import {
 } from "antd";
 import { CaretDownOutlined, BellOutlined } from "@ant-design/icons";
 
-const { Text, Link } = Typography;
+const { Text } = Typography;
 
 interface Props {
   selectedCompany: string;

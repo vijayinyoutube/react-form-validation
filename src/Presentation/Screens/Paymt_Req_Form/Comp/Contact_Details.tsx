@@ -3,7 +3,7 @@ import { InfoCircleOutlined } from "@ant-design/icons";
 import { CaretDownOutlined } from "@ant-design/icons";
 
 import React from "react";
-const { Text, Link } = Typography;
+const { Text } = Typography;
 
 interface Props {
   selectedItems: string[];
