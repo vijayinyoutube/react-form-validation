@@ -1,4 +1,4 @@
-import { Form, Input, Select, Typography } from "antd";
+import { Divider, Form, Input, Select, Typography } from "antd";
 import { InfoCircleOutlined } from "@ant-design/icons";
 import { CaretDownOutlined } from "@ant-design/icons";
 
@@ -25,7 +25,8 @@ const ContactDetails = ({
     <div>
       <div className="pt-1">
         <Text className="font-medium text-lg">Contact Details</Text>
-      </div>
+      </div>{" "}
+      <Divider className="Divider" />
       {RequestTo(selectedItems, setSelectedItems, filteredOptions)}
       {NameEmail()}
     </div>

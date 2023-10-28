@@ -1,4 +1,12 @@
-import { Form, Input, DatePicker, Typography, Alert, Select } from "antd";
+import {
+  Form,
+  Input,
+  DatePicker,
+  Typography,
+  Alert,
+  Select,
+  Divider,
+} from "antd";
 import { CaretDownOutlined, BellOutlined } from "@ant-design/icons";
 
 const { Text, Link } = Typography;
@@ -29,9 +37,10 @@ function ReqDetails({
 }: Props) {
   return (
     <>
-      <div className="pt-4">
+      <div className="">
         <Text className="font-medium text-lg">Request Details</Text>
-        <div className="flex lg:flex-row md:flex-col flex-col mt-3">
+        <Divider className="Divider mb-3" />
+        <div className="flex lg:flex-row md:flex-col flex-col mt-2">
           <div className="flex  flex-col lg:w-1/2 md:w-full  lg:mr-2 sm:mb-2 mb-0">
             <p className="">Amount</p>
             <Form.Item<FieldType>
