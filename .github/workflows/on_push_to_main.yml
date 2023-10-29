@@ -1,8 +1,8 @@
 name: Deploy using Github Actions
 
 on:
-  push:
-    branches: [ main ]
+  pull_request:
+    types: [closed]
 
 permissions:
   id-token: write
@@ -37,10 +37,11 @@ jobs:
 
 
   deploy:
+    
     name: Deploy
     needs: build
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+    if: github.event.pull_request.merged == true
 
 
     steps:
