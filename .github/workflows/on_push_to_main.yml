@@ -37,7 +37,6 @@ jobs:
     name: Deploy
     needs: build
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true
     steps:
       - name: Download artifact
         uses: actions/download-artifact@v3
