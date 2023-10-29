@@ -1,10 +1,15 @@
 name: Build and Deploy
 
 on:
+
+
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+
+permissions:
+  id-token: write
 
 jobs:
   build:
@@ -37,8 +42,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
-    permissions:
-      id-token: write
+
 
     steps:
       - name: Download artifact
