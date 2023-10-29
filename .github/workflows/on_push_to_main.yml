@@ -33,6 +33,11 @@ jobs:
           name: production-files
           path: ./dist
 
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
       - name: Download artifact
         uses: actions/download-artifact@v3
         with:
@@ -41,11 +46,4 @@ jobs:
       
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v1
-
-  # deploy:
-  #   name: Deploy
-  #   needs: build
-  #   runs-on: ubuntu-latest
-  #   steps:
-     
 
