@@ -47,5 +47,5 @@ jobs:
           path: ./dist
       
       - name: Deploy to GitHub Pages
-        uses: actions/react-form-validation@v1
+        uses: actions/deploy-pages@v1
 
