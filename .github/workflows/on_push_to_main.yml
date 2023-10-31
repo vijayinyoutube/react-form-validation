@@ -62,6 +62,8 @@ on:
       - '**/README.md'
 
   # # Allows you to run this workflow manually from the Actions tab
+  # - - - Uncomment this if you want the deployment to be 
+  # - - - done manually after github actions has made a build - - -
   # workflow_dispatch:
 
 # Sets the GITHUB_TOKEN permissions to allow deployment to GitHub Pages
