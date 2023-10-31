@@ -57,7 +57,8 @@ name: Deploy Pages
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ['main']
+    branches: 
+      - main
     paths-ignore:
       - '**/README.md'
 
