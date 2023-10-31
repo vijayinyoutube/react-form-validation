@@ -20,7 +20,7 @@ function ActionBtns() {
             },
           }}
         >
-          <Button className="ReqPaymentBtn" type="primary">
+          <Button className="ReqPaymentBtn" type="primary" htmlType="submit">
             <div className="">Request Payment</div>
           </Button>
         </ConfigProvider>

@@ -17,9 +17,13 @@ const Paymt_Req_Form = () => {
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
   const filteredOptions = OPTIONS.filter((o) => !selectedItems.includes(o));
 
+  const onFinish = (values: any) => {
+    console.log("Success:", values);
+  };
+
   return (
     <Flex
-      className="h-screen bg-slate-100 m-0 "
+      className="min-h-screen bg-slate-100 m-0 h-auto"
       justify="center"
       align="center"
     >
@@ -33,6 +37,7 @@ const Paymt_Req_Form = () => {
             autoComplete="off"
             layout="vertical"
             className=""
+            onFinish={onFinish}
           >
             <div>
               <Text className={`font-medium text-2xl`}>Payment Request</Text>

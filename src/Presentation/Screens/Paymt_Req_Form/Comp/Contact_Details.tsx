@@ -45,18 +45,23 @@ function RequestTo(
         <p className="">Send Payment Request to</p>
         <InfoCircleOutlined />
       </div>
-      <Select
-        suffixIcon={<CaretDownOutlined />}
-        mode="multiple"
-        className="mt-2 w-full"
-        placeholder="Select your customer"
-        value={selectedItems}
-        onChange={setSelectedItems}
-        options={filteredOptions.map((item) => ({
-          value: item,
-          label: item,
-        }))}
-      />
+      <Form.Item<FieldType>
+        name="requestTo"
+        rules={[{ required: true, message: "Please select your customer" }]}
+      >
+        <Select
+          suffixIcon={<CaretDownOutlined />}
+          mode="multiple"
+          className="mt-2 w-full"
+          placeholder="Select your customer"
+          value={selectedItems}
+          onChange={setSelectedItems}
+          options={filteredOptions.map((item) => ({
+            value: item,
+            label: item,
+          }))}
+        />
+      </Form.Item>
     </div>
   );
 }
@@ -73,7 +78,7 @@ function NameEmail() {
           rules={[
             {
               required: true,
-              message: "Please input your username!",
+              message: "Please enter your name",
             },
           ]}
         >
@@ -85,7 +90,13 @@ function NameEmail() {
         <Form.Item<FieldType>
           name="email"
           className="mt-1 mb-0"
-          rules={[{ type: "email" }]}
+          rules={[
+            { type: "email" },
+            {
+              required: true,
+              message: "Please enter your email",
+            },
+          ]}
         >
           <Input />
         </Form.Item>

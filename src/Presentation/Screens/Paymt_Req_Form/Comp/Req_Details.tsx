@@ -6,8 +6,10 @@ import {
   Alert,
   Select,
   Divider,
+  InputNumber,
 } from "antd";
 import { CaretDownOutlined, BellOutlined } from "@ant-design/icons";
+import FormItem from "antd/es/form/FormItem";
 
 const { Text } = Typography;
 
@@ -21,10 +23,10 @@ interface Props {
 }
 
 type FieldType = {
-  requestTo: string;
-  name: string;
-  email: string;
+  date: string;
   amount: string;
+  companyName: string;
+  DestAccnt: string;
 };
 
 function ReqDetails({
@@ -49,20 +51,30 @@ function ReqDetails({
               rules={[
                 {
                   required: true,
-                  message: "Please input amount!",
+                  message: "Please enter the amount",
                 },
               ]}
             >
-              <Input
+              <InputNumber
+                controls={false}
                 prefix="$"
                 suffix="USD"
-                className="text-gray-400 font-light"
+                className="text-gray-400 font-light w-full"
               />
             </Form.Item>
           </div>
           <div className="flex flex-col lg:w-1/2 md:w-full sm:mb-2 mb-0 ">
             <p>Due Date</p>
-            <Form.Item className="mt-1 mb-0 pb-0">
+            <Form.Item
+              className="mt-1 mb-0 pb-0"
+              name="date"
+              rules={[
+                {
+                  required: true,
+                  message: "Please enter due date",
+                },
+              ]}
+            >
               <DatePicker className="mb-0 w-full" />
             </Form.Item>
           </div>
@@ -70,31 +82,51 @@ function ReqDetails({
       </div>
       <div className="mt-3">
         <p className="">Company name to show on request</p>
-        <Select
-          suffixIcon={<CaretDownOutlined />}
-          className="mt-2 w-full"
-          placeholder="Company name"
-          value={selectedCompany}
-          onChange={setSelectedCompany}
-          options={COMPANY_NAMES.map((item) => ({
-            value: item,
-            label: item,
-          }))}
-        />
+        <FormItem<FieldType>
+          name="companyName"
+          rules={[
+            {
+              required: true,
+              message: "Please enter company name",
+            },
+          ]}
+        >
+          <Select
+            suffixIcon={<CaretDownOutlined />}
+            className="mt-2 w-full"
+            placeholder="Company name"
+            value={selectedCompany}
+            onChange={setSelectedCompany}
+            options={COMPANY_NAMES.map((item) => ({
+              value: item,
+              label: item,
+            }))}
+          />
+        </FormItem>
       </div>
       <div className="mt-4">
         <p className="">Destination Account</p>
-        <Select
-          suffixIcon={<CaretDownOutlined />}
-          className="mt-2 w-full"
-          placeholder="Select account..."
-          value={selectedDestination}
-          onChange={setSelectedDestination}
-          options={DEST_COMPANY_NAMES.map((item) => ({
-            value: item,
-            label: item,
-          }))}
-        />
+        <FormItem<FieldType>
+          name="DestAccnt"
+          rules={[
+            {
+              required: true,
+              message: "Please enter destination account",
+            },
+          ]}
+        >
+          <Select
+            suffixIcon={<CaretDownOutlined />}
+            className="mt-2 w-full"
+            placeholder="Select account..."
+            value={selectedDestination}
+            onChange={setSelectedDestination}
+            options={DEST_COMPANY_NAMES.map((item) => ({
+              value: item,
+              label: item,
+            }))}
+          />
+        </FormItem>
         <p className="text-xs text-gray-400 mt-1 font-[240]">
           Incoming payments are placed in a seperate secure account to keep
           destination account information ananymous.
